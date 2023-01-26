@@ -17,7 +17,7 @@ class Program
         job2._endDate = 2023; 
 
         Resume resume1 = new Resume();
-        resume1._name = "Nicoli Hawks";
+        resume1._name = "Nicoli Shaw";
         resume1._list.Add(job1);
         resume1._list.Add(job2);
 
