@@ -1,16 +1,28 @@
 public class Entry
 {
-    //Attributes
-    //the body of the entry class should include the details on how to display. 
-    DateTime _theCurrentTime = DateTime.Now;
-    string dateText = _theCurrentTime.ToShortDateString();
+    public string GetDate()
+    {
+        DateTime dateTime = DateTime.Now; // will give the date for today
+        string date = dateTime.ToString("mm/dd/yyyy");
+        return date;
+    }   
 
-    List<string> _prompts = [prompt1, prompt2];
+    string date = "";
+    string prompt = "";
+    string entry = "";
 
-    List<string> _entries = [entry1, entry2]
+    public void SetDate(string date)
+    {
+        this.date = date;
+    }
+    public void SetPrompt(string prompt)
+    {
+        this.prompt = prompt;
+    }
+    public void SetUserEntry(string entry)
+    {
+        this.entry = entry;
+    }
 
-    //Method(s)
-    //Display
-    // (from ms teams) Console.WriteLine(_listName)
-    // *(but I have to use a foreach loop)
+    
 }

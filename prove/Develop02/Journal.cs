@@ -1,45 +1,43 @@
-//using Systems.Collections.Generic; //? Idk if this is correct, I got it off of ms teams
+using System;
 
 public class Journal 
 {
-    //ATTRIBUTES
-    List<string> _entries = List<string>; 
-
-
-    //ADDING TO AN ENTRY
-    //I need to store the entries as objects in a list w datetype List<Entry>
-    public void Add()
+    List<Entry> journal = new List<Entry>();
+    public void AddEntry(Entry entry)
     {
-        
+        journal.Append(entry);
+    }
+
+    
+    public void Save(Journal journal)
+    {
+        filename.Append(journal);
     }
 
     //DISPLAYING ALL ENTRIES
-    //This one is supposed to iterate through all Entry objects and call Entry's display
-    //Not sure if this is supposed to be like get all the objects then call display
-    //or call display for each object- one at a time per se. 
-    System.IO.File.ReadAllLines()
-    foreach (string entry in File(Entry))
+    //System.IO.File.ReadAllLines();
+    public void Display()
     {
-        Console.WriteLine(Entry.Display());
+            foreach (List<Entry> in journal)      //This one is supposed to iterate through all Entry objects and call Entry's display
+            {
+            Console.WriteLine(Entry.Display(journal));
+            }
     }
-
-    //SAVING TO A FILE
     // ?Need?   var stringList = String.Join("\n", _entry.ToArray());
     // outputFile.WriteLine( stringList);)
-    string fileName = "myFile.txt";
+    string fileName = "myFile.txt";  //SAVING TO A FILE
 
-    using (StreamWriter outputFile = new StreamWriter(filename))
-    {
-        // You can add text to the file with the WriteLine method
-        outputFile.WriteLine("This will be the first line in the file.");
+    // using (StreamWriter outputFile = new StreamWriter(filename))
+    // {
+    //     // You can add text to the file with the WriteLine method
+    //     outputFile.WriteLine("This will be the first line in the file.");
 
-        // You can use the $ and include variables just like with Console.WriteLine
-        string color = "Blue";
-        outputFile.WriteLine($"My favorite color is {color}");
-    }
+    //     // You can use the $ and include variables just like with Console.WriteLine
+    //     string color = "Blue";
+    //     outputFile.WriteLine($"My favorite color is {color}");
+    // }
 
-    //Loading from a file
-    string filename = "myFile.txt";
+    string filename = "myFile.txt";     //Loading from a file
     string[] lines = System.IO.File.ReadAllLines(filename);
 
     foreach (string line in lines)
