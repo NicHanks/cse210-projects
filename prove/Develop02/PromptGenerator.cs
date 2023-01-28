@@ -5,7 +5,7 @@ public class PromptGenerator
     {
         Random random = new Random();
         String _promptString = "";
-        _randomPrompts = random.Next(1,5);
+        _randomPrompts = random.Next(1,6);
 
         if (_randomPrompts == 1)
         {

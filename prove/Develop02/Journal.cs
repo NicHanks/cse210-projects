@@ -1,31 +1,42 @@
 using System;
+using System.IO;
 
 public class Journal 
 {
-    List<Entry> journal = new List<Entry>();
+    public string fileName = "myFile.txt";  //SAVING TO A FILE
+    List<Entry> entries = new List<Entry>();
     public void AddEntry(Entry entry)
     {
-        journal.Append(entry);
+        entries.Append(entry);
     }
 
     
-    public void Save(Journal journal)
+    public void Save()
     {
-        filename.Append(journal);
+        //fileName.Append(entries);
+        using (StreamWriter outputFile = new StreamWriter(fileName))
+        {
+            foreach (Entry entry in entries)
+            {
+                outputFile.WriteLine($"{entry.date} {entry.prompt} {entry.response}");
+                 
+            }
+            
+        }
+
     }
 
     //DISPLAYING ALL ENTRIES
     //System.IO.File.ReadAllLines();
     public void Display()
     {
-            foreach (List<Entry> in journal)      //This one is supposed to iterate through all Entry objects and call Entry's display
+            foreach (Entry entry in entries)      //This one is supposed to iterate through all Entry objects and call Entry's display
             {
-            Console.WriteLine(Entry.Display(journal));
+            Console.WriteLine($"{entry.date} - {entry.prompt} \n {entry.response} \a");
             }
     }
     // ?Need?   var stringList = String.Join("\n", _entry.ToArray());
     // outputFile.WriteLine( stringList);)
-    string fileName = "myFile.txt";  //SAVING TO A FILE
 
     // using (StreamWriter outputFile = new StreamWriter(filename))
     // {
@@ -37,14 +48,4 @@ public class Journal
     //     outputFile.WriteLine($"My favorite color is {color}");
     // }
 
-    string filename = "myFile.txt";     //Loading from a file
-    string[] lines = System.IO.File.ReadAllLines(filename);
-
-    foreach (string line in lines)
-    {
-        string[] parts = line.Split(",");
-
-        string firstName = parts[0];
-        string lastName = parts[1];
-    }
 }

@@ -6,22 +6,22 @@ namespace Develop02
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to the Journal Program!");
-            Console.WriteLine("Please select one of the following choices:");
-            Console.WriteLine("1. Write");
-            Console.WriteLine("2. Display");
-            Console.WriteLine("3. Load");
-            Console.WriteLine("4. Save");
-            Console.WriteLine("5. Quit");
 
-            string input = Console.ReadLine();
-
-            // List<Journal> Entries = New List<Journal>();
-            List<Entry> variable_name = new List<Entry>(); 
+            Journal journal = new Journal(); 
             PromptGenerator promptGenerator = new PromptGenerator(); 
+            string input = "0";
 
             while (input != "5")
             {
+                Console.WriteLine("Welcome to the Journal Program!");
+                Console.WriteLine("Please select one of the following choices:");
+                Console.WriteLine("1. Write");
+                Console.WriteLine("2. Display");
+                Console.WriteLine("3. Load");
+                Console.WriteLine("4. Save");
+                Console.WriteLine("5. Quit");
+                input = Console.ReadLine();
+
                 if (input == "1") 
                 {               
                     Entry entry = new Entry();
@@ -32,28 +32,26 @@ namespace Develop02
                     entry.SetDate(date);
                     entry.SetPrompt(prompt);
                     entry.SetUserEntry(_entry);
-                    Journal journal = new Journal();
-                    journal.Save(entry);
-                    List<Entry> entries = new List<Entry>();
+                    journal.AddEntry(entry);
                     
                 }
 
                 if (input == "2")
                 {
-                    Journal.Display();
+                    journal.Display();
                 }
 
                 if (input == "3")
                 {
-                    Journal.Load();
-                    string[] lines = System.IO.File.ReadAllLines();
+                    //Journal.Load();
+                    //string[] lines = System.IO.File.ReadAllLines();
                 }
 
                 if (input == "4")
                 {
                     Console.WriteLine("What is the filename? ");
-                    string filename = Console.ReadLine();
-                    Journal.Save(filename);
+                    journal.fileName = Console.ReadLine();
+                    journal.Save();
                 }
             }
             
