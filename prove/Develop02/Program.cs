@@ -26,8 +26,9 @@ namespace Develop02
                 {               
                     Entry entry = new Entry();
                     string date = entry.GetDate();
-                    string prompt = promptGenerator.GetPrompt(); 
-                    Console.WriteLine($"Date : {date} - Prompt: {prompt}");
+                    string prompt = promptGenerator.GetPrompt();
+                    string scripture = promptGenerator.GetScripture(); 
+                    Console.WriteLine($"{scripture} \nDate : {date} - Prompt: {prompt}");
                     string _entry = Console.ReadLine();
                     entry.SetDate(date);
                     entry.SetPrompt(prompt);

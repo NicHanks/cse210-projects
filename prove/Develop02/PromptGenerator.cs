@@ -30,3 +30,8 @@ public class PromptGenerator
     return _promptString;
     }
 }
+
+public class GetScripture
+{
+
+}
