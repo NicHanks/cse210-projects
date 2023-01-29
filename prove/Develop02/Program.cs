@@ -43,7 +43,7 @@ namespace Develop02
 
                 if (input == "3")
                 {
-                    //Journal.Load();
+                    journal.Load();
                     //string[] lines = System.IO.File.ReadAllLines();
                 }
 

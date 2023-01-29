@@ -3,14 +3,42 @@ using System.IO;
 
 public class Journal 
 {
-    public string fileName = "myFile.txt";  //SAVING TO A FILE
+    public string fileName = "myFile.txt";
     List<Entry> entries = new List<Entry>();
     public void AddEntry(Entry entry)
     {
-        entries.Append(entry);
+        entries.Add(entry);
     }
 
-    
+    public void Load()
+    {
+        String line;
+        //try 
+            {
+            //Pass the file path and file name to the StreamReader constructor
+            StreamReader sr = new StreamReader("myfile.txt");
+            //Read the first line of text
+            line = sr.ReadLine();
+            //Continue to read until you reach end of file
+            while (line != null)
+            {
+                Console.WriteLine(line);
+                line = sr.ReadLine();
+            }
+            //close the file
+            sr.Close();
+            Console.ReadLine();
+        // }
+        // catch(Exception e)
+        // {
+        //     Console.WriteLine("Exception: " + e.Message);
+        // }
+        // finally
+        // {
+        //     Console.WriteLine("Executing finally block.");
+            }
+    }
+
     public void Save()
     {
         //fileName.Append(entries);
@@ -18,7 +46,7 @@ public class Journal
         {
             foreach (Entry entry in entries)
             {
-                outputFile.WriteLine($"{entry.date} {entry.prompt} {entry.response}");
+                outputFile.WriteLine($"{entry.date}/ {entry.prompt}/ {entry.response}");
                  
             }
             
@@ -35,6 +63,7 @@ public class Journal
             Console.WriteLine($"{entry.date} - {entry.prompt} \n {entry.response} \a");
             }
     }
+
     // ?Need?   var stringList = String.Join("\n", _entry.ToArray());
     // outputFile.WriteLine( stringList);)
 
