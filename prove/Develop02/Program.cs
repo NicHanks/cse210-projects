@@ -6,14 +6,14 @@ namespace Develop02
     {
         static void Main(string[] args)
         {
-
+            //Since these are objects, they don't need to be in the undersocre/camelCase format, right?
             Journal journal = new Journal(); 
             PromptGenerator promptGenerator = new PromptGenerator(); 
+            ScriptureGenerator scriptureGenerator = new ScriptureGenerator();
             string input = "0";
-
+            Console.WriteLine("Welcome to the Journal Program!");
             while (input != "5")
             {
-                Console.WriteLine("Welcome to the Journal Program!");
                 Console.WriteLine("Please select one of the following choices:");
                 Console.WriteLine("1. Write");
                 Console.WriteLine("2. Display");
@@ -25,13 +25,14 @@ namespace Develop02
                 if (input == "1") 
                 {               
                     Entry entry = new Entry();
-                    string date = entry.GetDate();
-                    string prompt = promptGenerator.GetPrompt();
-                    string scripture = promptGenerator.GetScripture(); 
-                    Console.WriteLine($"{scripture} \nDate : {date} - Prompt: {prompt}");
+                    string _date = entry.GetDate();
+                    string _prompt = promptGenerator.GetPrompt();
+                    string _scripture = scriptureGenerator.GetScripture(); 
+                    Console.WriteLine($"{_scripture} \nDate : {_date} - Prompt: {_prompt}");
                     string _entry = Console.ReadLine();
-                    entry.SetDate(date);
-                    entry.SetPrompt(prompt);
+                    entry.SetDate(_date);
+                    entry.SetPrompt(_prompt);
+                    entry.SetScripture(_scripture);
                     entry.SetUserEntry(_entry);
                     journal.AddEntry(entry);
                     

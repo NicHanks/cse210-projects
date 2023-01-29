@@ -1,27 +1,32 @@
 public class Entry
 {
-    public string date = "";
-    public string prompt = "";
-    public string response = "";
+    public string _date = "";
+    public string _prompt = "";
+    public string _scripture = "";
+    public string _response = "";
 
     public string GetDate()
     {
-        DateTime dateTime = DateTime.Now; // will give the date for today
-        string date = dateTime.ToString("mm/dd/yyyy");
-        return date;
+        DateTime dateTime = DateTime.Now;
+        string _date = dateTime.ToString("mm/dd/yyyy");
+        return _date;
     }   
 
     public void SetDate(string date)
     {
-        this.date = date;
+        this._date = date;
     }
     public void SetPrompt(string prompt)
     {
-        this.prompt = prompt;
+        this._prompt = prompt;
+    }
+    public void SetScripture(string scripture)
+    {
+        this._scripture = scripture;
     }
     public void SetUserEntry(string entry)
     {
-        this.response = entry;
+        this._response = entry;
     }
 
 }

@@ -1,7 +1,7 @@
 public class PromptGenerator
 {
-    int _randomPrompts = 0;  //ATTRIBUTE
-    public string GetPrompt()   //METHOD
+    int _randomPrompts = 0;
+    public string GetPrompt()
     {
         Random random = new Random();
         String _promptString = "";
@@ -29,9 +29,4 @@ public class PromptGenerator
         }
     return _promptString;
     }
-}
-
-public class GetScripture
-{
-
 }
