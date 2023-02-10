@@ -1,6 +1,5 @@
 using System;
-public partial class Form1
-{
+
 class Program
 {
     static void Main(string[] args)
@@ -29,5 +28,4 @@ class Program
 
         }
     }
-}
 }
